@@ -1,45 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>PhantomOS</title>
-<style>
-body{background:black;color:#00ff00;font-family:monospace;padding:20px;font-size:18px}
-input{background:black;border:none;color:#00ff00;font-family:monospace;font-size:18px;width:80%;outline:none}
-h2{color:#00ff00;text-shadow:0 0 10px #00ff00}
-</style>
-</head>
-<body>
-<h2>[ PHANTOM OS v1.0 - ACCESO CONCEDIDO ]</h2>
-<p>Bienvenido PHANTOM1mario. Escribe 'help' y pulsa ENTER</p>
-<div id="out"></div>
-<br>
-> <input id="cmd" placeholder="escribe aqui" autofocus>
-
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PhantomOS</title><style>
+body{margin:0;background:#000;color:#fff;font-family:Consolas,monospace;overflow:hidden;font-size:13px}
+#i{display:flex;height:100vh;align-items:center;justify-content:center;flex-direction:column}
+input,button{padding:6px 10px;margin:5px;font-size:12px;border-radius:5px;border:0}
+button{background:#00ff88;cursor:pointer;font-weight:700}
+#d{display:none;height:100vh;background:#111;padding:15px}
+#bsod,#virus{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;padding:20px}
+#bsod{background:#0078d7;color:#fff;font-family:sans-serif}
+#virus{background:red;color:yellow;text-align:center;padding-top:25%;font-size:22px;animation:b .2s infinite}
+@keyframes b{0%{background:red}50%{background:#000}}
+.box{border:1px solid #222;padding:10px;margin-top:15px;border-radius:8px;transform:scale(.9)}
+</style></head><body>
+<div id="i">
+<h2 style="margin:0">👑 PhantomOS</h2>
+<p id="w" style="font-size:11px">¿Cómo te llamas?</p>
+<input id="n" placeholder="Tu nombre" style="width:140px">
+<button onclick="entrar()">ENTRAR</button>
+<div id="az" class="box" style="display:none"><small>🔒 ADMIN</small><br><input id="p" type="password" placeholder="Clave" style="width:90px"><button onclick="chk()">OK</button></div>
+</div>
+<div id="d"><b id="s"></b><p style="font-size:11px;opacity:.6">Sistema iniciado.</p><button onclick="showA()">Admin</button></div>
+<div id="bsod"><h2>:(</h2><p>PHANTOM_OS_SECURITY_VIOLATION</p><small>Intento no autorizado...</small></div>
+<div id="virus"><b>☠️ HACKEADO POR PHANTOM1MARIO ☠️</b><br><small>SISTEMA COMPROMETIDO</small></div>
 <script>
-const out = document.getElementById('out');
-const inp = document.getElementById('cmd');
-const cmds = {
-help: "Comandos disponibles: help, hack, clear, whoami, ls, phantom, matrix",
-hack: "HACKEANDO SERVIDOR...<br>[##########] 100%<br>ACCESO TOTAL CONCEDIDO",
-whoami: "Usuario: PHANTOM1mario - Rango: ADMIN - Nivel: 99",
-ls: "Archivos: PhantomOS.exe / secret.txt / data.bin / password.key",
-phantom: "PhantomOS creado por PHANTOM1mario - El sistema hacker mas epico",
-matrix: "ACTIVANDO MODO MATRIX...",
-clear: ""
-};
-
-inp.addEventListener('keydown', e => {
-  if(e.key === 'Enter'){
-    let v = inp.value.toLowerCase().trim();
-    if(v === 'clear'){ out.innerHTML = ''; }
-    else {
-      let r = cmds[v] || "Comando no encontrado. Escribe 'help'";
-      out.innerHTML += `<div><br>> ${v}<br>${r}</div>`;
-    }
-    inp.value = '';
-  }
-});
-</script>
-</body>
-</html>
+let u="";function entrar(){u=document.getElementById('n').value||"Mario";i.style.display='none';d.style.display='block';s.innerText="Bienvenido "+u+" 👑"}
+function showA(){i.style.display='flex';d.style.display='none';az.style.display='block';w.innerText="Hola "+u+", clave admin:"}
+function chk(){if(p.value!="phantom123"){bsod.style.display='block';setTimeout(()=>{bsod.style.display='none';virus.style.display='block'},1200);setTimeout(()=>location.reload(),4000)}else{alert("Admin "+u+" OK");entrar()}}
+</script></body></html>
