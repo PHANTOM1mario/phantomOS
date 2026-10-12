@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PhantomOS</title>
+<style>
+body{background:black;color:#00ff00;font-family:monospace;padding:20px;font-size:18px}
+input{background:black;border:none;color:#00ff00;font-family:monospace;font-size:18px;width:80%;outline:none}
+h2{color:#00ff00;text-shadow:0 0 10px #00ff00}
+</style>
+</head>
+<body>
+<h2>[ PHANTOM OS v1.0 - ACCESO CONCEDIDO ]</h2>
+<p>Bienvenido PHANTOM1mario. Escribe 'help' y pulsa ENTER</p>
+<div id="out"></div>
+<br>
+> <input id="cmd" placeholder="escribe aqui" autofocus>
+
+<script>
+const out = document.getElementById('out');
+const inp = document.getElementById('cmd');
+const cmds = {
+help: "Comandos disponibles: help, hack, clear, whoami, ls, phantom, matrix",
+hack: "HACKEANDO SERVIDOR...<br>[##########] 100%<br>ACCESO TOTAL CONCEDIDO",
+whoami: "Usuario: PHANTOM1mario - Rango: ADMIN - Nivel: 99",
+ls: "Archivos: PhantomOS.exe / secret.txt / data.bin / password.key",
+phantom: "PhantomOS creado por PHANTOM1mario - El sistema hacker mas epico",
+matrix: "ACTIVANDO MODO MATRIX...",
+clear: ""
+};
+
+inp.addEventListener('keydown', e => {
+  if(e.key === 'Enter'){
+    let v = inp.value.toLowerCase().trim();
+    if(v === 'clear'){ out.innerHTML = ''; }
+    else {
+      let r = cmds[v] || "Comando no encontrado. Escribe 'help'";
+      out.innerHTML += `<div><br>> ${v}<br>${r}</div>`;
+    }
+    inp.value = '';
+  }
+});
+</script>
+</body>
+</html>
