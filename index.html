@@ -1,28 +1,23 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PhantomOS</title><style>
-body{margin:0;background:#000;color:#fff;font-family:Consolas,monospace;overflow:hidden;font-size:13px}
-#i{display:flex;height:100vh;align-items:center;justify-content:center;flex-direction:column}
-input,button{padding:6px 10px;margin:5px;font-size:12px;border-radius:5px;border:0}
-button{background:#00ff88;cursor:pointer;font-weight:700}
-#d{display:none;height:100vh;background:#111;padding:15px}
-#bsod,#virus{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;padding:20px}
-#bsod{background:#0078d7;color:#fff;font-family:sans-serif}
-#virus{background:red;color:yellow;text-align:center;padding-top:25%;font-size:22px;animation:b .2s infinite}
-@keyframes b{0%{background:red}50%{background:#000}}
-.box{border:1px solid #222;padding:10px;margin-top:15px;border-radius:8px;transform:scale(.9)}
+<!DOCTYPE html><html lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>PhantomOS</title><style>
+*{box-sizing:border-box}body{margin:0;background:#000;color:#0f0;font-family:Consolas,monospace;font-size:9px;overflow:hidden}
+#l{display:flex;height:100vh;align-items:center;justify-content:center;flex-direction:column}
+input,button{padding:4px 6px;margin:2px;font-size:9px;border:0;border-radius:3px}button{background:#00ff88;font-weight:700;cursor:pointer}
+#d{display:none;height:100vh;background:#101010;padding:6px}
+.i{width:42px;text-align:center;display:inline-block;margin:4px;cursor:pointer;font-size:8px}.i div{font-size:18px}
+.w{display:none;position:fixed;top:6%;left:2%;width:96%;height:62%;background:#1e1e1e;border:1px solid #00ff88;border-radius:5px;z-index:10}
+.h{background:#00ff88;color:#000;padding:2px 5px;display:flex;justify-content:space-between;font-size:9px;font-weight:700}iframe{width:100%;height:89%;border:0;background:#fff}
+#bs,#vr{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999}#bs{background:#0078d7;color:#fff;padding:10px;font-family:sans-serif;font-size:10px}#vr{background:red;color:#ff0;text-align:center;padding-top:12%;font-size:13px;animation:b .12s infinite}@keyframes b{0%{background:red}50%{background:#000}}
 </style></head><body>
-<div id="i">
-<h2 style="margin:0">👑 PhantomOS</h2>
-<p id="w" style="font-size:11px">¿Cómo te llamas?</p>
-<input id="n" placeholder="Tu nombre" style="width:140px">
-<button onclick="entrar()">ENTRAR</button>
-<div id="az" class="box" style="display:none"><small>🔒 ADMIN</small><br><input id="p" type="password" placeholder="Clave" style="width:90px"><button onclick="chk()">OK</button></div>
-</div>
-<div id="d"><b id="s"></b><p style="font-size:11px;opacity:.6">Sistema iniciado.</p><button onclick="showA()">Admin</button></div>
-<div id="bsod"><h2>:(</h2><p>PHANTOM_OS_SECURITY_VIOLATION</p><small>Intento no autorizado...</small></div>
-<div id="virus"><b>☠️ HACKEADO POR PHANTOM1MARIO ☠️</b><br><small>SISTEMA COMPROMETIDO</small></div>
+<div id=l><b style="font-size:12px">👑 PhantomOS</b><p style="opacity:.5;margin:2px">Nombre?</p><input id=n placeholder=Nombre style="width:90px"><button onclick=go()>ENTRAR</button></div>
+<div id=d><b id=wel style="font-size:9px"></b><div class=i onclick="op('wC')"><div>🌐</div>Chrome</div><div class=i onclick="op('wY')"><div>▶️</div>YT</div><div class=i onclick="op('wA')"><div>🔒</div>Admin</div><div class=i onclick=location.reload()><div>🔄</div>Reset</div></div>
+<div id=wC class=w><div class=h><span>Chrome</span><button onclick="cl('wC')">X</button></div><iframe src="https://www.google.com/webhp?igu=1"></iframe></div>
+<div id=wY class=w><div class=h><span>YT</span><button onclick="cl('wY')">X</button></div><iframe src="https://www.youtube.com/embed/jNQXAC9IVRw"></iframe></div>
+<div id=wA class=w style="width:170px;height:90px;left:28%;top:30%"><div class=h><span>Admin</span><button onclick="cl('wA')">X</button></div><div style="padding:6px"><input id=p type=password placeholder=Clave style="width:70px"><button onclick=ck()>OK</button></div></div>
+<div id=bs><h3 style="margin:0">:(</h3>SECURITY_VIOLATION<br><span id=bU></span></div>
+<div id=vr><b>☠️ PHANTOM1MARIO ☠️</b><br><span style="font-size:10px">HACKEADO POR MALWARE NO IDENTIFICADO</span><br><b id=tm style="font-size:24px">20</b><br><small id=ct>20s para restaurar</small></div>
 <script>
-let u="";function entrar(){u=document.getElementById('n').value||"Mario";i.style.display='none';d.style.display='block';s.innerText="Bienvenido "+u+" 👑"}
-function showA(){i.style.display='flex';d.style.display='none';az.style.display='block';w.innerText="Hola "+u+", clave admin:"}
-function chk(){if(p.value!="phantom123"){bsod.style.display='block';setTimeout(()=>{bsod.style.display='none';virus.style.display='block'},1200);setTimeout(()=>location.reload(),4000)}else{alert("Admin "+u+" OK");entrar()}}
+let u="";function go(){u=n.value||"Mario";l.style.display='none';d.style.display='block';wel.innerText="Hola "+u+" 👑"}
+function op(x){document.getElementById(x).style.display='block'}function cl(x){document.getElementById(x).style.display='none'}
+function sp(){let m=new SpeechSynthesisUtterance("Tu sistema ha sido hackeado por malware no identificado");m.lang='es-ES';m.rate=.9;m.pitch=.6;speechSynthesis.speak(m)}
+function ck(){if(p.value!="phantom123"){bU.innerText=u;bs.style.display='block';setTimeout(()=>{bs.style.display='none';vr.style.display='block';sp();let t=20;let iv=setInterval(()=>{t--;tm.innerText=t;ct.innerText=t+"s para restaurar";if(t%7==0)sp();if(t<=0){clearInterval(iv);vr.style.display='none';cl('wA');p.value=''}},1000)},1000)}else{alert("OK "+u);cl('wA')}}
 </script></body></html>
